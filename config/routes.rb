@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  root to: 'dresses#index'
+  root to: 'pages#home'
 
   resources :dresses
 
