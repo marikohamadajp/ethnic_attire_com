@@ -1,0 +1,10 @@
+.banner {
+  background-image: asset-url('hero.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 600px;
+  padding: 200px 0;
+  h1 {
+    color: white;
+  }
+}
