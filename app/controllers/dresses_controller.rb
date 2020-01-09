@@ -16,6 +16,10 @@ class DressesController < ApplicationController
     end
   end
 
+  def edit
+
+  end
+
   private
 
   def dress_params
