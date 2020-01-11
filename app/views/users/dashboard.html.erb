@@ -2,18 +2,22 @@
 
 <div class="container">
   <div class="row d-flex">
-    <div class="col">
       <% @dresses.each do |dress| %>
         <% if dress.user_id == current_user.id %>
-        <div class="card-dress" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path dress.photo, height: 300, width: 400, crop: :fill %>');">>
+          <div class="col col-sm-1 col-md-2 col-lg-4">
+          <div class="card-dress">
+            <%= image_tag dress.photo.url %>
           <div class="card-dress-infos">
             <div>
               <h2><%= dress.name %></h2>
+              <p><%= dress.size %></p>
             </div>
-          <h2 class="card-dress-pricing">dress.price</h2>
-          <% end %>
-        <% end %>
+            <h2 class="card-dress-pricing"><%= dress.price %>€</h2>
+            <%= image_tag "mariko_user.jpg", :class => "card-dress-user avatar-bordered"%>
+          </div>
+        </div>
+      </div>
+      <% end %>
+    <% end %>
     </div>
-  </div>
 </div>
-
