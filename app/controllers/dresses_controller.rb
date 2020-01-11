@@ -8,6 +8,7 @@ class DressesController < ApplicationController
 
   def new
     @dress = Dress.new
+    authorize @dress
   end
 
   def edit
@@ -15,6 +16,8 @@ class DressesController < ApplicationController
 
   def create
     @dress = Dress.new(dress_params)
+    @dress.user = current_user
+    authorize @dress
     if @dress.save
       redirect_to @dress, notice: 'Dress was successfully created.'
     else
@@ -23,7 +26,7 @@ class DressesController < ApplicationController
   end
 
   def update
-    if @dress.update(flat_params)
+    if @dress.update(dress_params)
       redirect_to @dress, notice: 'Dress was successfully updated.'
     else
       render :edit
