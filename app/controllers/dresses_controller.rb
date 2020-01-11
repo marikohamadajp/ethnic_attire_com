@@ -4,6 +4,8 @@ class DressesController < ApplicationController
   end
 
   def show
+    @dress = Dress.find(params[:id])
+    authorize @dress
   end
 
   def new
