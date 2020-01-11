@@ -16,3 +16,30 @@
   color: white;
   text-decoration: underline;
 }
+
+// Button for dress Show.html.erb
+
+.btn-rent {
+  background-color: #9C3B3B;
+  color: #fff;
+  padding: 12px 16px;
+  letter-spacing: 0.5em;
+  border-radius: 5px;
+}
+.btn-rent:hover {
+  background-color: #fff;
+  color: #9C3B3B;
+}
+
+.btn-contact-owner {
+    background-color: #fff;
+    border: 1px solid #9C3B3B;
+    font-weight: 700;
+    padding: 8px 16px;
+    color: #9C3B3B;
+    text-align: center;
+}
+.btn-contact-owner:hover {
+  background-color: #9C3B3B;
+  color: #fff;
+}
