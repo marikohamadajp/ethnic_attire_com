@@ -10,68 +10,24 @@
 <div class="container">
   <div class ="sub-title">
     <h2>New Arrivals</h2>
+
 <div class="container">
-  <div class="row d-flex">
-  <div class="col">
-    <div class="card-dress">
-  <%= image_tag "abaya.jpg", alt: "Abaya" %>
-  <div class="card-dress-infos">
-    <div>
-      <h2>Abaya</h2>
-      <p>Fantstic Abaya suitable for Muslim girls</p>
-    </div>
-    <h2 class="card-dress-pricing">€14.00</h2>
-    <%= image_tag "saudi_user.jpg", :class => "card-dress-user avatar-bordered"%>
-  </div>
-</div>
-</div>
+  <div class="row">
+<% @dresses.each do |dress| %>
+<div class="col col-sm-1 col-md-2 col-lg-4">
 
-<div class="col">
-    <div class="card-dress">
-  <%= image_tag "cheongsam.jpg", alt: "Cheongsam" %>
-  <div class="card-dress-infos">
-    <div>
-      <h2>Cheongsam</h2>
-      <p>Sexy Chinese dress for any occasions</p>
-    </div>
-    <h2 class="card-dress-pricing">€12.00</h2>
-    <%= image_tag "chinese_user.jpg", :class => "card-dress-user avatar-bordered"%>
-  </div>
+<div class="card" style="width: 18rem;">
+  <%= image_tag dress.photo.url, alt: dress.name, :class => "card-dress" %>
+  <div class="card-body">
+    <h5 class="card-title"><%= dress.name %></h5>
+    <p class="card-text"><%= dress.price %>€</p>
 </div>
 </div>
+</div>
+  <% end %>
 
-<div class="col">
-    <div class="card-dress">
-  <%= image_tag "kaftan.jpg", alt: "Kaftan" %>
-  <div class="card-dress-infos">
-    <div>
-      <h2>Kaftan</h2>
-      <p>Gorgeous Kaftan available</p>
-    </div>
-    <h2 class="card-dress-pricing">€15.00</h2>
-    <%= image_tag "turkish_user.jpg", :class => "card-dress-user avatar-bordered"%>
-  </div>
-</div>
-</div>
-
-<div class="col">
-    <div class="card-dress">
-  <img src="app/assets/images/kimono.jpg" alt="Kimono" />
-  <div class="card-dress-infos">
-  <%= image_tag "kimono.jpg", alt: "Kimono" %>
-    <div>
-      <h2>Kimono</h2>
-      <p>Beautiful Furisode (Kimono) for young ladies</p>
-    </div>
-    <h2 class="card-dress-pricing">€18.00</h2>
-    <%= image_tag "japanese_user.jpg", :class => "card-dress-user avatar-bordered"%>
-  </div>
-</div>
-
-</div>
 
   </div>
 </div>
-
   </div>
 </div>
