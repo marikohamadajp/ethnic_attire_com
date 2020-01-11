@@ -1,6 +1,6 @@
 class DressesController < ApplicationController
   def index
-    @dresses = Dress.all
+    @dresses = policy_scope(Dress).order(created_at: :desc)
   end
 
   def show
