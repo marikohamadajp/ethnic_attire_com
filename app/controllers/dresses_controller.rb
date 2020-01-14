@@ -1,6 +1,15 @@
 class DressesController < ApplicationController
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
+
+    @dresses = Dress.geocoded
+
+    @markers = @dresses.map do |dress|
+      {
+        lat: dress.latitude,
+        lng: dress.longitude
+      }
+    end
   end
 
   def show
