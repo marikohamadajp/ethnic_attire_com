@@ -1,30 +1,30 @@
-<div class="product-img">
-<!-- INSERT DRESS.PHOTO.URL AS BACKGROUND AND REMOVE BACKGROUND FROM _SHOW.SCSS -->
-<!-- INSERT DRESS.NAME -->
-<h2><%= @dress.name %></h2>
-</div>
-
 <div class="-container">
-  <div class="-row">
-    <!-- INSERT CALENDAR FEATURE -->
-    <h3>Rental Date</h3>
-    <span>Date</span>
-    <a href="#" class="btn-rent">Rent now</a>
-</div>
-
-<div class="product-info">
-  <div class="product-details">
-    <div class="details">
-      <p>Price</p>
-      <p>Category</p>
-      <p>Size</p>
-      <p>Colour</p>
+  <div class="-frame">
+    <div class="product-img" style="background-image: url('<%= cl_image_path @dress.photo.url %>'">
+      <h2><%= @dress.name %></h2>
     </div>
-    <!-- @DRESS ITERATION STARTS HERE -->
-      <div class="values">
-        <p><%= @dress.price %></p>
-      </div>
-</div>
+
+        <div class="-row">
+          <div class="-book">
+          <h3>Rental Date</h3>
+          <span>Date</span>
+        </div>
+          <!-- INSERT CALENDAR FEATURE -->
+        <div class="product-details">
+          <div class="details">
+            <p>Price</p>
+            <p>Size</p>
+            <p>Colour</p>
+          </div>
+          <!-- @DRESS ITERATION STARTS HERE -->
+            <div class="values">
+              <p><%= @dress.price %></p>
+              <p><%= @dress.size %></p>
+              <p><%= @dress.color %></p>
+            </div>
+        </div>
+        <div class="product-info">
+
 
   <div class="product-owner">
     <div class="owner-head">
@@ -34,8 +34,16 @@
 
     <div class="owner-body">
      <p>Hi, my name is Kalinda Sharma, from India. I have several sarees and am happy to rent you for your special occasions. Please contact me if you have questions. Thanks.</p>
-      <a href="#" class="btn-contact-owner">Contact the owner</a>
+      <a href="#" class="btn-rent">Rent now</a>
     </div>
   </div>
 </div>
+      </div>
+  </div>
+
+
 </div>
+
+
+
+
