@@ -1,4 +1,6 @@
 class DressesController < ApplicationController
+  before_action :set_dress, only: [ :destroy ]
+
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
 
@@ -30,9 +32,9 @@ class DressesController < ApplicationController
     @dress.user = current_user
     authorize @dress
     if @dress.save
-      redirect_to @dress, notice: 'Dress was successfully created.'
+      redirect_to user_dashboard_path, notice: 'Dress was successfully created.'
     else
-      render :dashboard
+      render :new
     end
   end
 
@@ -46,7 +48,7 @@ class DressesController < ApplicationController
 
   def destroy
     @dress.destroy
-    redirect_to @dress, notice: 'Dress was successfully destroyed.'
+    redirect_to user_dashboard_path, notice: 'Dress was successfully destroyed.'
   end
 
   private
