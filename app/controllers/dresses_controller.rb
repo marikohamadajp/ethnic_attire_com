@@ -9,7 +9,9 @@ class DressesController < ApplicationController
     @markers = @dresses.map do |dress|
       {
         lat: dress.latitude,
-        lng: dress.longitude
+        lng: dress.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { dress: dress }),
+        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
       }
     end
   end
