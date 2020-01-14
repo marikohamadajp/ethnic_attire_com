@@ -1,23 +1,22 @@
 <h1>Dashboard</h1>
 
 <div class="container">
-  <div class="row d-flex">
-      <% @dresses.each do |dress| %>
-        <% if dress.user_id == current_user.id %>
-          <div class="col col-sm-1 col-md-2 col-lg-4">
-          <div class="card-dress">
-            <%= image_tag dress.photo.url %>
-          <div class="card-dress-infos">
-            <div>
-              <h2><%= dress.name %></h2>
-              <p><%= dress.size %></p>
+      <div class="row">
+        <% @dresses.each do |dress| %>
+          <% if dress.user_id == current_user.id %>
+            <div class="col col-sm-1 col-md-2 col-lg-4">
+              <div class="card" style="width: 18rem;">
+              <%= image_tag dress.photo.url, alt: dress.name, :class => "card-dress" %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= dress.price %> €</h5>
+                  <p class="card-text"><%= dress.name %></p>
+                  <p class="card-text"><%= dress.size %></p>
+                  <p class="card-text"><%= dress.color %></p>
+                  <%= image_tag dress.user.photo, :class => "card-dress-user avatar-bordered"%>
+                </div>
+              </div>
             </div>
-            <h2 class="card-dress-pricing"><%= dress.price %>€</h2>
-            <%= image_tag "mariko_user.jpg", :class => "card-dress-user avatar-bordered"%>
-          </div>
-        </div>
+            <% end %>
+          <% end %>
       </div>
-      <% end %>
-    <% end %>
     </div>
-</div>
