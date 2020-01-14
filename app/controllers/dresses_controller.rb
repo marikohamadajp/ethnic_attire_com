@@ -23,7 +23,7 @@ class DressesController < ApplicationController
     if @dress.save
       redirect_to @dress, notice: 'Dress was successfully created.'
     else
-      render :new
+      render :dashboard
     end
   end
 
