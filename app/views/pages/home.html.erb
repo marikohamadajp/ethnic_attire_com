@@ -21,7 +21,12 @@
                 <p class="card-text"><%= dress.name %></p>
                 <p class="card-text"><%= dress.size %></p>
                 <p class="card-text"><%= dress.color %></p>
-                <%= image_tag "mariko_user.jpg", :class => "card-dress-user avatar-bordered"%>
+                <% owner = User.find_by(id: dress.user_id) %>
+                  <% if owner.photo.blank? == false %>
+                    <%= image_tag owner.photo.url, :class => "card-dress-user avatar-bordered"%>
+                  <% else %>
+                    <%= image_tag "no_picture.png", :class => "card-dress-user avatar-bordered"%>
+                  <% end %>
               </div>
             </div>
           </div>
