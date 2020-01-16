@@ -52,10 +52,16 @@
   margin-right: 104px;
 }
 
-//only for testing
-.avatar-dummy {
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background-color: grey;
+@media only screen and (max-width: 599px) {
+  .-frame {
+    display: block;
+  }
+  .-row {
+  padding-left: 0em;
+  width: 85vw;
+  }
+  .product-img {
+  width: 85vw;
+  }
+
 }
