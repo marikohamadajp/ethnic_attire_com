@@ -17,8 +17,8 @@
             <div class="card" style="width: 18rem;">
             <%= image_tag dress.photo.url, alt: dress.name, :class => "card-dress" %>
               <div class="card-body">
-                <h5 class="card-title"><%= dress.price %> €</h5>
-                <p class="card-text"><%= dress.name %></p>
+                <h5 class="card-title"><%= dress.name %></h5>
+                <span class="card-text"><%= dress.price %> €</span>
                 <p class="card-text"><%= dress.size %></p>
                 <p class="card-text"><%= dress.color %></p>
                 <% owner = User.find_by(id: dress.user_id) %>

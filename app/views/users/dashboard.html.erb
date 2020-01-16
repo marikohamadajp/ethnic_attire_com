@@ -17,7 +17,7 @@
                   <% else %>
                     <%= image_tag current_user.photo.url, :class => "card-dress-user avatar-bordered"%>
                   <% end %>
-                  <td><%= link_to 'Destroy', dress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Destroy', dress_path(dress), method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </div>
               </div>
             </div>
