@@ -1,7 +1,8 @@
-import mapboxgl from 'mapbox-gl';
+import mapboxgl from 'mapbox-gl'; import MapboxGeocoder from '@mapbox/mapbox-gl-geocoder'
 
-const mapElement = document.getElementById('map');
 console.log("here");
+const mapElement = document.getElementById('map');
+
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
@@ -36,14 +37,13 @@ const fitMapToMarkers = (map, markers) => {
 
 const initMapbox = () => {
   if (mapElement) {
-    const map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/pdunleav/cjofefl7u3j3e2sp0ylex3cyb'}); // <-- use your own!
+    buildMap(); // <-- use your own!
     const markers = JSON.parse(mapElement.dataset.markers);
     addMarkersToMap(map, markers);
     fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken,
                                       mapboxgl: mapboxgl }));
-}
+  };
+};
 
 export { initMapbox };
