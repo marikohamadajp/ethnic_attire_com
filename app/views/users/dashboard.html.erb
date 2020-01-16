@@ -12,7 +12,11 @@
                   <p class="card-text"><%= dress.name %></p>
                   <p class="card-text"><%= dress.size %></p>
                   <p class="card-text"><%= dress.color %></p>
-                  <%= image_tag current_user.photo.url, :class => "card-dress-user avatar-bordered"%>
+                  <% if current_user.photo.url.blank? %>
+                    <%= image_tag 'no_picture.png', :class => "card-dress-user avatar-bordered"%>
+                  <% else %>
+                    <%= image_tag current_user.photo.url, :class => "card-dress-user avatar-bordered"%>
+                  <% end %>
                   <td><%= link_to 'Destroy', dress, method: :delete, data: { confirm: 'Are you sure?' } %></td>
                 </div>
               </div>
