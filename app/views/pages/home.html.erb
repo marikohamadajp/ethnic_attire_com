@@ -14,8 +14,10 @@
       <div class="row">
         <% @dresses.each do |dress| %>
           <div class="col col-sm-1 col-md-2 col-lg-4">
+            <%= link_to dress_path(dress) do %>
             <div class="card" style="width: 18rem;">
             <%= image_tag dress.photo.url, alt: dress.name, :class => "card-dress" %>
+            <% end %>
               <div class="card-body">
                 <h5 class="card-title"><%= dress.name %></h5>
                 <span class="card-text"><%= dress.price %> €</span>

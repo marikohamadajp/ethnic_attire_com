@@ -49,6 +49,7 @@ class DressesController < ApplicationController
   end
 
   def destroy
+    authorize @dress
     @dress.destroy
     redirect_to user_dashboard_path, notice: 'Dress was successfully destroyed.'
   end
