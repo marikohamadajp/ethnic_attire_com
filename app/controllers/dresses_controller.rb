@@ -1,5 +1,5 @@
 class DressesController < ApplicationController
-  before_action :set_dress, only: [ :destroy ]
+  before_action :set_dress, only: [ :destroy, :update ]
 
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
@@ -27,6 +27,8 @@ class DressesController < ApplicationController
   end
 
   def edit
+    @dress = Dress.find(params[:id])
+    authorize @dress
   end
 
   def create
@@ -41,8 +43,9 @@ class DressesController < ApplicationController
   end
 
   def update
+    authorize @dress
     if @dress.update(dress_params)
-      redirect_to @dress, notice: 'Dress was successfully updated.'
+      redirect_to user_dashboard_path, notice: 'Dress was successfully updated.'
     else
       render :edit
     end
