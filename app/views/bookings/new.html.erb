@@ -1,0 +1,26 @@
+<div class="-container">
+  <div class="-frame">
+    <div class="booking-img" style="background-image: url('<%= cl_image_path @dress.photo.url %>'">
+    </div>
+
+    <div class="-row">
+      <div class="-book">
+        <h3><%= @dress.name %></h3>
+
+      </div>
+      <!-- INSERT CALENDAR FEATURE -->
+      <div class="product-details">
+        <div class="details">
+          <p>Price</p>
+          <p>Size</p>
+          <p>Colour</p>
+        </div>
+        <!-- @DRESS ITERATION STARTS HERE -->
+        <div class="values">
+          <p><%= @dress.price %></p>
+          <p><%= @dress.size %></p>
+          <p><%= @dress.color %></p>
+        </div>
+      </div>
+    </div>
+  </div>
