@@ -3,6 +3,10 @@ a, a:hover {
   text-decoration: none;
 }
 
+h1, h3 {
+  font-family: 'Dancing Script';
+}
+
 @import "alert";
 @import "avatar";
 @import "navbar";
