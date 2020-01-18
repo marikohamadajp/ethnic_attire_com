@@ -3,17 +3,18 @@ class DressesController < ApplicationController
 
   def index
     @dresses = policy_scope(Dress).order(created_at: :desc)
+    @dressstock = Dress.all
 
-    @dresses = Dress.geocoded
+    # @dresses = Dress.geocoded
 
-    @markers = @dresses.map do |dress|
-      {
-        lat: dress.latitude,
-        lng: dress.longitude,
-        infoWindow: render_to_string(partial: "info_window", locals: { dress: dress }),
-        # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
-      }
-    end
+    # @markers = @dresses.map do |dress|
+    #   {
+    #     lat: dress.latitude,
+    #     lng: dress.longitude,
+    #     infoWindow: render_to_string(partial: "info_window", locals: { dress: dress }),
+    #     # image_url: helpers.asset_url('REPLACE_THIS_WITH_YOUR_IMAGE_IN_ASSETS')
+    #   }
+    # end
   end
 
   def show
