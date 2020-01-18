@@ -1,7 +1,31 @@
-<div
-  id="map"
-  style="width: 100%;
-  height: 600px;"
-  data-markers="<%= @markers.to_json %>"
-  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
-></div>
+<div class="container">
+  <div class ="sub-title">
+    <h2>Dresses available</h2>
+    <div class="container">
+      <div class="row">
+        <% @dressstock.each do |dress| %>
+          <div class="col col-sm-1 col-md-2 col-lg-4">
+            <%= link_to dress_path(dress) do %>
+            <div class="card" style="width: 18rem;">
+            <%= image_tag dress.photo.url, alt: dress.name, :class => "card-dress" %>
+            <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= dress.name %></h5>
+                <span class="card-text"><%= dress.price %> €</span>
+                <p class="card-text"><%= dress.size %></p>
+                <p class="card-text"><%= dress.color %></p>
+                <% owner = User.find_by(id: dress.user_id) %>
+                  <% if owner.photo.blank? == false %>
+                    <%= image_tag owner.photo.url, :class => "card-dress-user avatar-bordered"%>
+                  <% else %>
+                    <%= image_tag "no_picture.png", :class => "card-dress-user avatar-bordered"%>
+                  <% end %>
+              </div>
+            </div>
+          </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
