@@ -7,7 +7,6 @@
     <div class="booking-row">
       <div class="-book">
         <h3><%= @dress.name %></h3>
-
       </div>
       <!-- INSERT CALENDAR FEATURE -->
       <div class="product-details">
@@ -24,7 +23,7 @@
         </div>
       </div>
       <%= simple_form_for [@dress, @booking]  do |f| %>
-        <%= f.input :date %>
+        <%= f.input :rent_date %>
          <%= f.button :submit, "Confirm" %>
       <% end %>
     </div>
