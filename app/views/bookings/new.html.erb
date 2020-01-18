@@ -1,9 +1,10 @@
 <div class="-container">
-  <div class="-frame">
-    <div class="booking-img" style="background-image: url('<%= cl_image_path @dress.photo.url %>'">
+  <div class="booking-frame">
+    <div class="booking-img">
+    <%= cl_image_tag(@dress.photo.url, :width=>200, :height=>300) %>
     </div>
 
-    <div class="-row">
+    <div class="booking-row">
       <div class="-book">
         <h3><%= @dress.name %></h3>
 
@@ -22,5 +23,9 @@
           <p><%= @dress.color %></p>
         </div>
       </div>
+      <%= simple_form_for [@dress, @booking]  do |f| %>
+        <%= f.input :date %>
+         <%= f.button :submit, "Confirm" %>
+      <% end %>
     </div>
   </div>
