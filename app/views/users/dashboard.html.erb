@@ -1,6 +1,6 @@
 <h1>Dashboard</h1>
-
 <div class="container">
+<h3>My published dresses</h3>
       <div class="row">
         <% @dresses.each do |dress| %>
           <% if dress.user_id == current_user.id %>
@@ -27,5 +27,31 @@
             </div>
             <% end %>
           <% end %>
+      </div>
+      <h3>My rented dresses</h3>
+      <div class="row">
+        <% @my_dress.each do |dress| %>
+            <div class="col col-sm-1 col-md-2 col-lg-4">
+              <div class="card" style="width: 18rem;">
+              <%= link_to dress_path(dress) do %>
+              <%= image_tag dress.photo.url, alt: dress.name, :class => "card-dress" %>
+              <% end %>
+                <div class="card-body">
+                  <h5 class="card-title"><%= dress.price %> €</h5>
+                  <p class="card-text"><%= dress.name %></p>
+                  <p class="card-text"><%= dress.size %></p>
+                  <p class="card-text"><%= dress.color %></p>
+                  <% if current_user.photo.url.blank? %>
+                    <%= image_tag 'no_picture.png', :class => "card-dress-user avatar-bordered"%>
+                  <% else %>
+                    <%= image_tag current_user.photo.url, :class => "card-dress-user avatar-bordered"%>
+                  <% end %>
+                  <td><%= link_to 'Destroy', dress_path(dress), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                  <td><%= link_to 'Update', edit_dress_path(dress) %></td>
+
+                </div>
+              </div>
+            </div>
+            <% end %>
       </div>
     </div>
